@@ -20,8 +20,11 @@ class PearSpider(CrawlSpider):
     )
 
     def parse_item(self, response):
+        # 跟浏览器返回的数据不一样得跟踪一下，为什么？
         item = SpPearvideoItem()
         try:
+            with open('test.html','w') as f:
+                f.write(response.text)
             video_link_js = response.xpath('.//script[@type="text/javascript"]/text()').getall()
             for js in video_link_js:
                 video_link = re.search(r'.*?srcUrl="(.*?)".*?', js, re.S)

@@ -44,8 +44,8 @@ COOKIES_ENABLED = False
 DEFAULT_REQUEST_HEADERS = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'en',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) \
-    Chrome/76.0.3809.100 Safari/537.36',
+    #'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:79.0) Gecko/20100101 Firefox/79.0'
 }
 
 # Enable or disable spider middlewares
@@ -77,9 +77,9 @@ DOWNLOADER_MIDDLEWARES = {
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     # 'sp_pearvideo.pipelines.SpPearvideoPipeline': 300,
-    'sp_pearvideo.pipelines.SaveMongodbPipeline': 400,
+    # 'sp_pearvideo.pipelines.SaveMongodbPipeline': 400,
     # 'sp_pearvideo.pipelines.UploadtoAliOssPipeline': 200,
-    # 'sp_pearvideo.pipelines.VideoDownloadPipeline': 1,
+    'sp_pearvideo.pipelines.VideoDownloadPipeline': 400,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -108,7 +108,7 @@ MONGO_URI = 'mongodb://127.0.0.1:27017'
 MONGO_DB = 'PearVideoDB'
 
 # 视频下载保存路径(重写了FilesPipeline默认输出路径：file_dir)
-FILES_STORE = r'E:\PearVideo'
+FILES_STORE = r'./PearVideo'
 
 # 配置aliyun的访问控制RAM
 ACCESS_KEY_ID = '<YourAccessKeyId>'
